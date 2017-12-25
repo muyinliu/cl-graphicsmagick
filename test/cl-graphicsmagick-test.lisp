@@ -161,7 +161,7 @@
   (with-test-magick-wand (wand :input-path "320x240_white.jpg")
     (is 8 (gm:%MagickGetImageDepth wand))))
 
-(subtest "Testing %MagickGetImageDepth"
+(subtest "Testing %MagickGetNumberImages"
   (with-test-magick-wand (wand :input-path "320x240_white.jpg")
     ;; TODO more test(such as GIF)
     (is 1 (gm:%MagickGetNumberImages wand))))
