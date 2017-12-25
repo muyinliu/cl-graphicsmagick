@@ -143,7 +143,13 @@
     (is 0 (gm:%MagickGetImageHeight wand))))
 
 (subtest "Testing %MagickGetImageResolution"
-  (with-test-magick-wand (wand :input-path "320x240_white.jpg")))
+  ;; NOTE: Resolution is lines count in per inch, default value is 72.0d0
+  (with-test-magick-wand (wand :input-path "320x240_white.jpg")
+    (cffi:with-foreign-pointer (x-pointer 64)
+      (cffi:with-foreign-pointer (y-pointer 64)
+        (gm:%MagickGetImageResolution wand x-pointer y-pointer)
+        (is 72.0d0 (cffi:mem-ref x-pointer :double))
+        (is 72.0d0 (cffi:mem-ref y-pointer :double))))))
 
 (subtest "Testing %MagickGetImageFormat"
   (with-test-magick-wand (wand :input-path "320x240_white.jpg")
