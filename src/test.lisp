@@ -165,7 +165,7 @@
         (%MagickReadImage watermark-wand "xc:none")
         
         (with-drawing-wand (drawing-wand)
-          (%DrawPushGraphicContext drawing-wand)
+          (%MagickDrawPushGraphicContext drawing-wand)
           (when font-path
             ;; (%DrawSetFont drawing-wand font-path)
             (%DrawSetFont drawing-wand font))
@@ -242,7 +242,7 @@
         (with-magick-wand (image-wand :input-path input-path
                                       :output-path output-path)
           (with-drawing-wand (drawing-wand)
-            (%DrawPushGraphicContext drawing-wand)
+            (%MagickDrawPushGraphicContext drawing-wand)
             (when font-path
               ;; (%DrawSetFont drawing-wand font-path)
               (%DrawSetFont drawing-wand font))
