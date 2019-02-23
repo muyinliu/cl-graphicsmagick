@@ -9,3 +9,10 @@
   (t (:default "libGraphicsMagickWand")))
 
 (use-foreign-library graphicsmagick-wand)
+
+;;; InitializeMagick doesn't work on Windows unless its dll is loaded specifically
+#+windows
+(progn
+  (define-foreign-library graphicsmagick
+    (:windows "CORE_RL_magick_.dll"))
+  (use-foreign-library graphicsmagick))
