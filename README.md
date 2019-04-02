@@ -46,7 +46,7 @@ tar xvf GraphicsMagick-1.3.25.tar.gz
 cd GraphicsMagick-1.3.25
 ```
 
-Note: mare sure comment `#if defined(SIGSEGV)` statement in file `magick/magick.c`
+Note: make sure comment `#if defined(SIGSEGV)` statement in file `magick/magick.c`
 
 ```shell
 ./configure --enable-shared \
