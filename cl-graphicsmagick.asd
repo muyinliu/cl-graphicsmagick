@@ -1,7 +1,7 @@
 (asdf:defsystem "cl-graphicsmagick"
   :name "cl-graphicsmagick"
   :description "Common Lisp CFFI wrapper for GraphicsMagick, a library to deal with images."
-  :version "0.0.1"
+  :version "0.0.2"
   :author "Muyinliu Xing <muyinliu@gmail.com>"
   :license "MIT"
   :depends-on (:cffi)

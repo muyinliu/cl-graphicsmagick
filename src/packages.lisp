@@ -18,6 +18,8 @@
 
            ;;; utilities functions
            #:image-width-height
+           #:image-width
+           #:image-height
            #:describe-image
            #:image-size
            #:magick-read-image-x

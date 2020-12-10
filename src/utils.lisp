@@ -70,6 +70,16 @@
     (values (%MagickGetImageWidth magick-wand)
             (%MagickGetImageHeight magick-wand))))
 
+(defun image-width (path)
+  "Get Image's width."
+  (with-magick-wand (magick-wand :input-path path)
+    (%MagickGetImageWidth magick-wand)))
+
+(defun image-height (path)
+  "Get Image's height."
+  (with-magick-wand (magick-wand :input-path path)
+    (%MagickGetImageHeight magick-wand)))
+
 (defun describe-image (path)
   "Describes an image by formatting its attributes to an allocated string which must be freed by the user. Attributes include the image width, height, size, and others. The string is similar to the output of 'identify -verbose'."
   (with-magick-wand (magick-wand :input-path path)
