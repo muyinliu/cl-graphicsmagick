@@ -255,9 +255,26 @@ sbcl --eval "(asdf:test-system :cl-graphicsmagick)" --eval "(quit)"
 -----------------------------------------------------------------
 ## Known Issues
 
-### SIGSEGV Signal Handlers bug while runing on SBCL with Linux 64bit systems
+### `SIGSEGV` Signal Handlers bug while runing on SBCL with Linux 64bit systems
 
 Both GraphicsMagick and SBCL want to handle the signal cause SBCL crash on Linux 64bit systems(as far as I know, `cl-graphicsmagick` crash on CentOS 5.8 Final 64bit and CentOS 6.7 Final 64bit, and stuck CPU 100% on Debian 64bit system).
+
+```=>
+CORRUPTION WARNING in SBCL pid 74031(tid 2952937472):
+Signal 4 received (PC: 0x7fff78cf1614)
+The integrity of this image is possibly compromised.
+Continuing with fingers crossed.
+Magick: abort due to signal 11 (SIGSEGV) "Segmentation Fault"...
+fatal error encountered in SBCL pid 74031(tid 2952847360):
+gc signals blocked
+
+
+Error opening /dev/tty: Device not configured
+Welcome to LDB, a low-level debugger for the Lisp runtime environment.
+ldb> 
+```
+
+#### solution
 
 Thanks to **mordocai**, **stassats** and **foom**, solution is found.
 
